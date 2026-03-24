@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dbsbawcat45hi"]
+
+[ext_resource type="Script" uid="uid://8dj0cua26yeo" path="res://menu.gd" id="1_mae5d"]
+[ext_resource type="Texture2D" uid="uid://cad7lnpkja2ve" path="res://assets/photo-1609710228159-0fa9bd7c0827-scaled.jpg" id="1_ouk20"]
+[ext_resource type="FontFile" uid="uid://do7b77pjrj861" path="res://assets/alarm clock.ttf" id="2_mae5d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4hy44"]
+font = ExtResource("2_mae5d")
+font_size = 120
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="Control" unique_id=1393363736]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mae5d")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1826303475]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ouk20")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=1089719433]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 109.0
+grow_horizontal = 2
+text = "PONG"
+label_settings = SubResource("LabelSettings_4hy44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=712433745]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 149.0
+offset_right = 916.0
+offset_bottom = 529.0
+theme_override_constants/separation = 25
+
+[node name="facil" type="Button" parent="VBoxContainer" unique_id=341478731]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mae5d")
+theme_override_font_sizes/font_size = 30
+text = "FACIL"
+
+[node name="medio" type="Button" parent="VBoxContainer" unique_id=1278842794]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mae5d")
+theme_override_font_sizes/font_size = 30
+text = "MEDIO"
+
+[node name="dificil" type="Button" parent="VBoxContainer" unique_id=2005884394]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mae5d")
+theme_override_font_sizes/font_size = 30
+text = "DIFICIL"
+
+[node name="pvp" type="Button" parent="VBoxContainer" unique_id=532544104]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mae5d")
+theme_override_font_sizes/font_size = 30
+text = "PvP"
+
+[connection signal="pressed" from="VBoxContainer/facil" to="." method="_on_facil_pressed"]
+[connection signal="pressed" from="VBoxContainer/medio" to="." method="_on_medio_pressed"]
+[connection signal="pressed" from="VBoxContainer/dificil" to="." method="_on_dificil_pressed"]
+[connection signal="pressed" from="VBoxContainer/pvp" to="." method="_on_pvp_pressed"]

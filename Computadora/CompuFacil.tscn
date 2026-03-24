@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b2pdjlgo4mdr2"]
+
+[ext_resource type="PackedScene" uid="uid://kiowfcn1lgk0" path="res://Computadora/Computadora.tscn" id="1_jkael"]
+[ext_resource type="Script" uid="uid://bsofdbtnxx2xd" path="res://CompuFacil.gd" id="2_7nm4n"]
+
+[node name="CharacterBody2D" unique_id=1082787511 instance=ExtResource("1_jkael")]
+script = ExtResource("2_7nm4n")

@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://d2504n5a34m8"]
+
+[ext_resource type="Script" uid="uid://boyj2k0lfbxuu" path="res://JuegoCompleto/juego_completo_PvE.gd" id="1_l5pxa"]
+[ext_resource type="PackedScene" uid="uid://xb1orkv5s4g" path="res://Jugadores/Jugador.tscn" id="2_ql235"]
+[ext_resource type="PackedScene" uid="uid://b2pdjlgo4mdr2" path="res://Computadora/CompuFacil.tscn" id="3_rc8gm"]
+[ext_resource type="PackedScene" uid="uid://wc3itgii1oyb" path="res://Pelota/Pelota.tscn" id="4_7gein"]
+[ext_resource type="Texture2D" uid="uid://dqjbhi65v4pwo" path="res://assets/wall-horizontal.png" id="5_mmlb7"]
+[ext_resource type="Texture2D" uid="uid://cxgl0d5b56s2v" path="res://assets/wall-vertical.png" id="6_y7gon"]
+[ext_resource type="FontFile" uid="uid://do7b77pjrj861" path="res://assets/alarm clock.ttf" id="7_yqu66"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2tyj"]
+size = Vector2(1188, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqvyn"]
+size = Vector2(20, 618)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lnevu"]
+font = ExtResource("7_yqu66")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_xaoqr"]
+font = ExtResource("7_yqu66")
+font_size = 60
+
+[node name="Pong_PvsM" type="Node2D" unique_id=216630390]
+position = Vector2(-1, 0)
+script = ExtResource("1_l5pxa")
+
+[node name="Paleta1" parent="." unique_id=427883392 instance=ExtResource("2_ql235")]
+
+[node name="Computadora" parent="." unique_id=1082787511 instance=ExtResource("3_rc8gm")]
+
+[node name="Pelota" parent="." unique_id=414207065 instance=ExtResource("4_7gein")]
+
+[node name="Techo" type="StaticBody2D" parent="." unique_id=1386886608]
+position = Vector2(640, 40)
+
+[node name="Sprite2D" type="Sprite2D" parent="Techo" unique_id=1417571343]
+texture = ExtResource("5_mmlb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Techo" unique_id=750767404]
+shape = SubResource("RectangleShape2D_n2tyj")
+
+[node name="Piso" type="StaticBody2D" parent="." unique_id=1172662670]
+position = Vector2(640, 680)
+
+[node name="Sprite2D" type="Sprite2D" parent="Piso" unique_id=1679725001]
+texture = ExtResource("5_mmlb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso" unique_id=66577211]
+shape = SubResource("RectangleShape2D_n2tyj")
+
+[node name="GolIzq" type="Area2D" parent="." unique_id=1014256106]
+position = Vector2(1240, 379)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="GolIzq" unique_id=1009199001]
+position = Vector2(4, -18.999968)
+scale = Vector2(1, 1.0443039)
+texture = ExtResource("6_y7gon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GolIzq" unique_id=2030285621]
+position = Vector2(4, -19)
+shape = SubResource("RectangleShape2D_bqvyn")
+
+[node name="GolDerecha" type="Area2D" parent="." unique_id=915148916]
+position = Vector2(32, 379)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="GolDerecha" unique_id=385852692]
+position = Vector2(4, -18.999968)
+scale = Vector2(1, 1.0443039)
+texture = ExtResource("6_y7gon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GolDerecha" unique_id=20457387]
+position = Vector2(4, -19)
+shape = SubResource("RectangleShape2D_bqvyn")
+
+[node name="PGoal" type="Label" parent="." unique_id=696404092]
+offset_left = 520.0
+offset_top = 87.0
+offset_right = 611.0
+offset_bottom = 151.0
+text = "0"
+label_settings = SubResource("LabelSettings_lnevu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MGoal" type="Label" parent="." unique_id=616078071]
+offset_left = 704.0
+offset_top = 87.0
+offset_right = 744.0
+offset_bottom = 151.0
+text = "0"
+label_settings = SubResource("LabelSettings_xaoqr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1629749195]
+offset_left = 618.0
+offset_top = 100.0
+offset_right = 667.0
+offset_bottom = 182.0
+theme_override_constants/separation = 25
+
+[node name="facil" type="Button" parent="VBoxContainer" unique_id=920965674]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_yqu66")
+theme_override_font_sizes/font_size = 30
+text = "||"
+
+[connection signal="body_entered" from="GolIzq" to="." method="_on_gol_izq_body_entered"]
+[connection signal="body_entered" from="GolDerecha" to="." method="_on_gol_derecha_body_entered"]
+[connection signal="pressed" from="VBoxContainer/facil" to="." method="_on_facil_pressed"]

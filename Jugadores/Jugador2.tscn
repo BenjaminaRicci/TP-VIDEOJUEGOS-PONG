@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://csqforxmjt5xv"]
+
+[ext_resource type="Script" uid="uid://yueeg8i5752k" path="res://paleta_2.gd" id="1_i6vss"]
+[ext_resource type="Texture2D" uid="uid://buhnghrksa7c" path="res://assets/Blanco_Nube_PC3P00P201_PR-600x600.webp" id="2_ch3xj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kqxy3"]
+radius = 3.1914864
+height = 108.0
+
+[node name="Paleta2" type="CharacterBody2D" unique_id=427883392]
+position = Vector2(1136, 360)
+script = ExtResource("1_i6vss")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1759431065]
+position = Vector2(0, 0.125)
+scale = Vector2(0.019999996, 0.18041672)
+texture = ExtResource("2_ch3xj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2047944905]
+position = Vector2(-7.6293945e-06, 0)
+scale = Vector2(1.8800004, 1)
+shape = SubResource("CapsuleShape2D_kqxy3")
+debug_color = Color(0, 0.6, 0.7019608, 0.48235294)
